@@ -1,0 +1,198 @@
+[
+  {
+    "Experience": "Yes",
+    "Complexity": "Low",
+    "Effort": "Low",
+    "Dev & QA": "No",
+    "Size": "1 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "Low",
+    "Effort": "Low",
+    "Dev & QA": "Yes",
+    "Size": "2 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "Low",
+    "Effort": "Medium",
+    "Dev & QA": "No",
+    "Size": "2 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "Low",
+    "Effort": "Medium",
+    "Dev & QA": "Yes",
+    "Size": "3 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "Low",
+    "Effort": "High",
+    "Dev & QA": "No",
+    "Size": "3 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "Low",
+    "Effort": "High",
+    "Dev & QA": "Yes",
+    "Size": "5 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "Medium",
+    "Effort": "Low",
+    "Dev & QA": "No",
+    "Size": "2 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "Medium",
+    "Effort": "Low",
+    "Dev & QA": "Yes",
+    "Size": "3 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "Medium",
+    "Effort": "Medium",
+    "Dev & QA": "No",
+    "Size": "3 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Low",
+    "Effort": "Medium",
+    "Dev & QA": "Yes",
+    "Size": "5 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Low",
+    "Effort": "High",
+    "Dev & QA": "No",
+    "Size": "5 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Low",
+    "Effort": "High",
+    "Dev & QA": "Yes",
+    "Size": "8 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Medium",
+    "Effort": "Low",
+    "Dev & QA": "No",
+    "Size": "3 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Medium",
+    "Effort": "Low",
+    "Dev & QA": "Yes",
+    "Size": "5 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Medium",
+    "Effort": "Medium",
+    "Dev & QA": "No",
+    "Size": "5 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Medium",
+    "Effort": "Medium",
+    "Dev & QA": "Yes",
+    "Size": "8 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Medium",
+    "Effort": "High",
+    "Dev & QA": "No",
+    "Size": "8 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Medium",
+    "Effort": "High",
+    "Dev & QA": "Yes",
+    "Size": "13 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "High",
+    "Effort": "Low",
+    "Dev & QA": "No",
+    "Size": "5 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "High",
+    "Effort": "Low",
+    "Dev & QA": "Yes",
+    "Size": "8 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "High",
+    "Effort": "Medium",
+    "Dev & QA": "No",
+    "Size": "8 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "High",
+    "Effort": "Medium",
+    "Dev & QA": "Yes",
+    "Size": "13 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "High",
+    "Effort": "High",
+    "Dev & QA": "No",
+    "Size": "13 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "High",
+    "Effort": "High",
+    "Dev & QA": "Yes",
+    "Size": "21"
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "High",
+    "Effort": "Medium",
+    "Dev & QA": "Yes",
+    "Size": "8 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "High",
+    "Effort": "High",
+    "Dev & QA": "No",
+    "Size": "8 "
+  },
+  {
+    "Experience": "Yes",
+    "Complexity": "High",
+    "Effort": "High",
+    "Dev & QA": "Yes",
+    "Size": "13 "
+  },
+  {
+    "Experience": "No",
+    "Complexity": "Low",
+    "Effort": "Low",
+    "Dev & QA": "No",
+    "Size": "2 "
+  }
+]
