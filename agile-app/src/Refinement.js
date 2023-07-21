@@ -1,80 +1,32 @@
 import {useState} from "react";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-//import * as fs from 'fs';
+import Dropdown from "bootstrap/js/src/dropdown";
+import Form from "react-bootstrap/Form";
+import Table from 'react-bootstrap/Table';
 
 export const Refinement = ({users, user}) => {
-    const [story, setStory] = useState({id:"", storyPoints:0});
-    const [votes, setVotes] = useState([{email: "", vote:0}]);
-    const [mode, setMode] = useState([]);
-    let votingStarted = false;
-    let tempVotingArray = []
+    const [currentState, setState] = useState("basePage");
+    const [buttonText, setButtonText] = useState("Start Voting");
+    const [experience, setExp] = useState("Yes")
+    const [complexity, setComp] = useState("Low")
 
-    function calculateMode(pointVotes){
-        var frequency = []; // array of frequency.
-        var maxFreq = 0; // holds the max frequency.
-        var modes = [];
 
-        for (var i in pointVotes) {
-            frequency[pointVotes[i]] = (frequency[pointVotes[i]] || 0) + 1; // increment frequency.
-
-            if (frequency[pointVotes[i]] > maxFreq) { // is this frequency > max so far ?
-                maxFreq = frequency[pointVotes[i]]; // update max.
-            }
+    function changeButtonText(){
+        if(buttonText === "Start Voting"){
+            setButtonText("Stop Voting")
         }
-
-        for (var k in frequency) {
-            if (frequency[k] == maxFreq) {
-                modes.push(k);
-            }
+        else {
+            setState("finishedVoting")
         }
-
-        return modes;
     }
 
-    function handleStartVoting() {
-        votingStarted = true;
-        users.forEach( user => {
-            if (user.admin === true) {
-                tempVotingArray.push({name: user.Email, pointsVote: 0});
-            }
-        })
-        let tempJSON = JSON.stringify(tempVotingArray);
-       // fs.writeFileSync("tempVoting.json", tempJSON);
+    function updateStory(){
+        alert('Story Updated!');
+        setState("basePage")
+        setButtonText("Start Voting")
     }
-     function handleStopVoting() {
-       // tempVotingArray = require('./tempVoting');
-        let pointVotes = [];
-        votes.forEach( userVote => {
-            pointVotes.push(userVote.vote);
-        });
-        let modes = calculateMode(pointVotes);
-        setVotes(tempVotingArray);
-        setMode(modes);
-    }
-
-    function handleGetStory(storyId){
-        let options= {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: storyId })
-        }
-        console.log(user);
-        const res = fetch('http://localhost:5000/api/getStory', options)
-        console.log(res.json())
-        console.log(JSON.stringify(res.json()))
-        setStory(res.json())
-        return res.json();
-    }
-
-    function handleUpdateStory(story){
-        let options= {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: story.id, points: story.storyPoints })
-        }
-        const res = fetch('http://localhost:5000/api/setStory', options)
+    function submittedVote(){
+        alert('Vote Submitted');
+        setState('userVoted')
     }
 
     if (user.admin) {
@@ -83,29 +35,87 @@ export const Refinement = ({users, user}) => {
                 <div>
                     <h3>Refinement</h3>
                     <p>hi, {user.Email}</p>
-                    <p>you are an admin</p>
+                    <p>Scrum Master</p>
                 </div>
-                <div>
-                    <Form onSubmit={handleGetStory}>
-                        <Form.Label htmlFor="selectStory">Select Story</Form.Label>
-                        <Form.Control
-                            id="selectStory"
-                            type="text"
-                            value={story.id}
-                            aria-describedby="selectStoryHelpBlock"
-                        />
-                        <Form.Text id="selectStoryHelpBlock" muted>
-                            Input a Jira Story Number, i.e. NDCX-7012
-                        </Form.Text>
-                        <Button type="submit">Get Story</Button>
-                    </Form>
-                </div>
-                {story.id !== "" && <div>
-                    <ButtonGroup aria-label="StartStop">
-                        <Button disabled ={(votingStarted)} onClick={handleStartVoting()}>Start</Button>
-                        <Button disabled ={(!votingStarted)} onClick={handleStopVoting()}>Stop</Button>
-                    </ButtonGroup>
+                {currentState === 'basePage' && <div>
+                    <Form.Group>
+                        <Form.Label>Select Story</Form.Label>
+                        <Form.Select  onChange={(e) => setComp(e.target.value)} value={complexity} type="text">
+                            <option>NDCX-7912</option>
+                            <option>NDCX-5984</option>
+                            <option>NDCX-1928</option>
+                        </Form.Select>
+                    </Form.Group>
+                    <button onClick={() => changeButtonText()}>{buttonText}</button>
+                </div>}
+                {currentState === 'finishedVoting' && <div>
+                    <Form.Group>
+                        <Form.Label>Select Story</Form.Label>
+                        <Form.Select  onChange={(e) => setComp(e.target.value)} value={complexity} type="text">
+                            <option>NDCX-7912</option>
+                            <option>NDCX-5984</option>
+                            <option>NDCX-1928</option>
+                        </Form.Select>
+                    </Form.Group>
+                    <button>Start Voting</button>
+                    <Table striped bordered hover>
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Name</th>
+                            <th>Points Vote</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>James</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Dillon</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Maddie</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Mathew</td>
+                            <td>5</td>
 
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Holly</td>
+                            <td>5</td>
+
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Gina</td>
+                            <td>1</td>
+                        </tr>
+                        </tbody>
+                    </Table>
+                    <h3>Mode Vote</h3>
+                    <h2>2</h2>
+                    <Form.Group>
+                        <Form.Label>Select Story Points</Form.Label>
+                        <Form.Select  onChange={(e) => setComp(e.target.value)} value={complexity} type="text">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>5</option>
+                            <option>8</option>
+                            <option>13</option>
+                            <option>21</option>
+                        </Form.Select>
+                    </Form.Group>
+                    <button onClick={() => updateStory()}>Update Jira</button>
                 </div>}
             </div>
         )
@@ -115,7 +125,81 @@ export const Refinement = ({users, user}) => {
             <div>
                 <h3>Refinement</h3>
                 <p>hi, {user.Email}</p>
-                <p>you are not an admin</p>
+                <h3>Story Sizing for: NDCX-7912</h3>
+                {currentState === 'basePage' && <div>
+                    <Form.Group>
+                        <Form.Label>Select Story Points</Form.Label>
+                        <Form.Select  onChange={(e) => setComp(e.target.value)} value={complexity} type="text">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>5</option>
+                            <option>8</option>
+                            <option>13</option>
+                            <option>21</option>
+                        </Form.Select>
+                    </Form.Group>
+                    <button onClick={() => submittedVote()}>Cast Vote</button>
+                </div>}
+                {currentState === 'userVoted' && <div>
+                    <Form.Group>
+                        <Form.Label>Select Story Points</Form.Label>
+                        <Form.Select  onChange={(e) => setComp(e.target.value)} value={complexity} type="text">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>5</option>
+                            <option>8</option>
+                            <option>13</option>
+                            <option>21</option>
+                        </Form.Select>
+                    </Form.Group>
+                    <button onClick={() => submittedVote()}>Cast Vote</button>
+                    <Table striped bordered hover>
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Name</th>
+                            <th>Points Vote</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>James</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Dillon</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Maddie</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Mathew</td>
+                            <td>5</td>
+
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Holly</td>
+                            <td>5</td>
+
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Gina</td>
+                            <td>1</td>
+                        </tr>
+                        </tbody>
+                    </Table>
+                </div>}
+
             </div>
         )
     }

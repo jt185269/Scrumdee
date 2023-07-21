@@ -4,7 +4,7 @@ const cors = require('cors')
 const port = 5000
 const bodyParser = require('body-parser')
 const users = require('./users.json')
-const stories = require ('./jira.json')
+const stories = require('./jira.json')
 
 
 app.use(cors())
@@ -35,6 +35,7 @@ app.get('/users', (req, res) => {
 
 app.post('/getStory', (req, res) => {
     let foundStory = null;
+    console.log(stories)
     stories.forEach( story => {
         if (story.id === req.body.id) {
             foundStory = story;
