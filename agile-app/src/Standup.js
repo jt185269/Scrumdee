@@ -14,26 +14,33 @@ export const Standup = ({users, user}) => {
         emails.push(el.Email);
     })
 
-    var selected = ids[rand];
+    function getRandom() {
+        var rand = Math.floor(Math.random() * (usersCount));
+        return rand;
+    }
 
     function remove() {
-        alert('Removed user');
+        alert('will remove user');
         ids.splice(rand, 1);
         emails.splice(rand,1);
-      }
+        /* how to redraw with these new arrays instead */
+    }
+
+    function select() {
+        rand = getRandom();
+        alert(emails[rand]);
+    }
 
      return (
          <div>
             <h3>Standup</h3>
             <br />
             <h5>Randomise</h5>
-            <p>{rand}</p>
-            <p>{usersCount}</p>
             <ul> 
                 {
                 users.map(el => {
                     num++;
-                    return (<li>{el.Email}{ids[num]} n{num} s{selected}</li>)
+                    return (<li>{el.Email}{ids[num]}</li>)
                 }) 
             }
             </ul>
@@ -41,6 +48,8 @@ export const Standup = ({users, user}) => {
             <h5>Selected: {emails[rand]}</h5>
 
             <button onClick={remove}>Remove Selected</button>
+            <p></p>
+            <button onClick={select}>Select Again</button>
         </div>
      )
 }
