@@ -44,7 +44,7 @@ export const NavMenu = ({user}) => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link onClick={() => onPageChange("Sprint Planning")}>Sprint Planning</Nav.Link>
+                            <Nav.Link onClick={() => onPageChange("Sizing")}>Sizing</Nav.Link>
                             <Nav.Link onClick={() => onPageChange("Standup")}>Standup</Nav.Link>
                             <Nav.Link onClick={() => onPageChange("Refinement")}>Refinement</Nav.Link>
                             <Nav.Link onClick={() => onPageChange("Review")}>Review</Nav.Link>
@@ -54,6 +54,7 @@ export const NavMenu = ({user}) => {
                 </Container>
             </Navbar>
             {(page === "Refinement") && <Refinement users={users} user={user}/>}
+            {(page === "Sizing") && <Sizing users={users} user={user}/>}
             {/*{(page === "income" && data !== null) && <Income data={data} />}*/}
             {/*{(page === "summary" && data !== null) && <Summary data={data} />}*/}
             {/*{page === "schedule" && <CoffeeCalendar />}*/}
