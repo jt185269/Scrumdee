@@ -6,6 +6,7 @@ import { useState } from 'react';
 import {Sizing} from './Sizing'
 import {Refinement} from "./Refinement";
 import {Standup} from "./Standup";
+import {Retro} from "./Retro";
 
 async function getUsers() {
 
@@ -54,10 +55,10 @@ export const NavMenu = ({user}) => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            {(page === "Sprint Planning") && <Sizing users={users} user={user}/>}
             {(page === "Refinement") && <Refinement users={users} user={user}/>}
             {(page === "Standup") && <Standup users={users} user={user}/>}
-            {/*{(page === "summary" && data !== null) && <Summary data={data} />}*/}
-            {/*{page === "schedule" && <CoffeeCalendar />}*/}
+            {(page === "Retro") && <Retro users={users} user={user}/>}
         </>
 
     );
