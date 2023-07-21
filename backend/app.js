@@ -4,6 +4,7 @@ const cors = require('cors')
 const port = 5000
 const bodyParser = require('body-parser')
 const users = require('./users.json')
+const stories = require ('./jira.json')
 
 
 app.use(cors())
@@ -32,6 +33,35 @@ app.get('/users', (req, res) => {
     res.send(users)
 })
 
+app.post('/getStory', (req, res) => {
+    let foundStory = null;
+    stories.forEach( story => {
+        if (story.id === req.body.id) {
+            foundStory = story;
+        }
+    })
+    console.log(foundStory)
+    res.send(foundStory);
+})
+
+app.post('/setStory', (req, res) => {
+    let updatedStories = stories
+    let storyFound = true;
+    let indexOfStoryToUpdate = null
+    stories.forEach(( story, i) => {
+        if(story.id === req.body.id){
+            storyFound = true;
+            indexOfStoryToUpdate = i;
+        }
+    })
+
+    if (storyFound) {
+        updatedStories[indexOfStoryToUpdate].storyPoints = req.body.points
+        return true;
+    } else {
+        return false;
+    }
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
