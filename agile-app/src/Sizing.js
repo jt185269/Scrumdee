@@ -4,15 +4,14 @@ import {useState} from "react";
 const sizes = require('./sizes.json')
 
 export const Sizing = () => {
-    const [experience, setExp] = useState("")
-    const [complexity, setComp] = useState("")
-    const [effort, setEff] = useState("")
-    const [devQA, setDevQA] = useState("")
+    const [experience, setExp] = useState("Yes")
+    const [complexity, setComp] = useState("Low")
+    const [effort, setEff] = useState("Low")
+    const [devQA, setDevQA] = useState("Yes")
     const [sizeCalc, setSize] = useState("")
     const onSubmit = (e) => {
         e.preventDefault()
         sizes.forEach( size => {
-            console.log(size)
             if (size.Experience === experience && size.Complexity === complexity && size.Effort === effort && size["Dev & QA"] === devQA) {
                 setSize(size.Size)
             }
@@ -53,7 +52,7 @@ export const Sizing = () => {
             </Form.Group>
         <Button onClick={onSubmit} type='submit'>get size</Button>
     </Form>
-            <p>SIZE: {sizeCalc} </p>
+            SIZE: {sizeCalc}
         </>
     )
 }
