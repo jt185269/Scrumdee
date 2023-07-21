@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState } from 'react';
 import {Sizing} from './Sizing'
 import {Refinement} from "./Refinement";
+import {Standup} from "./Standup";
 import {Retro} from "./Retro";
 
 async function getUsers() {
@@ -55,9 +56,8 @@ export const NavMenu = ({user}) => {
                 </Container>
             </Navbar>
             {(page === "Sprint Planning") && <Sizing users={users} user={user}/>}
-            {/*{(page === "Standup") && <Standup users={users} user={user}/>}*/}
             {(page === "Refinement") && <Refinement users={users} user={user}/>}
-            {/*{(page === "Review") && <Review users={users} user={user}/>}*/}
+            {(page === "Standup") && <Standup users={users} user={user}/>}
             {(page === "Retro") && <Retro users={users} user={user}/>}
         </>
 
