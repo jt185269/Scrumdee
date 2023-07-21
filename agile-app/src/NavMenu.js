@@ -54,11 +54,11 @@ export const NavMenu = ({user}) => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            {(page === "Refinement") && <Sizing users={users} user={user}/>}
+            {(page === "Sprint Planning") && <Sizing users={users} user={user}/>}
+            {/*{(page === "Standup") && <Standup users={users} user={user}/>}*/}
+            {(page === "Refinement") && <Refinement users={users} user={user}/>}
+            {/*{(page === "Review") && <Review users={users} user={user}/>}*/}
             {(page === "Retro") && <Retro users={users} user={user}/>}
-            {/*{(page === "income" && data !== null) && <Income data={data} />}*/}
-            {/*{(page === "summary" && data !== null) && <Summary data={data} />}*/}
-            {/*{page === "schedule" && <CoffeeCalendar />}*/}
         </>
 
     );
