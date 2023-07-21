@@ -4,8 +4,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState } from 'react';
 import {Sizing} from './Sizing'
+import {Refinement} from "./Refinement";
 
-async function fetchData() {
+async function getUsers() {
 
     let options= {
 
@@ -15,19 +16,22 @@ async function fetchData() {
 
     }
 
-    const res = await fetch('http://localhost:5000/api/datafetch', options)
+    const res = await fetch('http://localhost:5000/users', options)
 
     return res.json();
 
 }
 
-export const NavMenu = () => {
+export const NavMenu = ({user}) => {
     const [page, setPage] = useState(null);
-    // const [data, setData] = useState(null)
-    // fetchData().then( (res) => {
-    //         setData(res)
-    //     }
-    // );
+    const [users, setUsers] = useState(null)
+    if (users === null) {
+        getUsers().then( (res) => {
+                setUsers(res)
+            }
+        );
+    }
+
 
     const onPageChange = (e) => {
         setPage(e)
@@ -40,15 +44,16 @@ export const NavMenu = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link onClick={() => onPageChange("sizing")}>Sizing</Nav.Link>
-                            <Nav.Link onClick={() => onPageChange("income")}>Income</Nav.Link>
-                            <Nav.Link onClick={() => onPageChange("summary")}>Summary</Nav.Link>
-                            <Nav.Link onClick={() => onPageChange("schedule")}>Schedule</Nav.Link>
+                            <Nav.Link onClick={() => onPageChange("Sprint Planning")}>Sprint Planning</Nav.Link>
+                            <Nav.Link onClick={() => onPageChange("Standup")}>Standup</Nav.Link>
+                            <Nav.Link onClick={() => onPageChange("Refinement")}>Refinement</Nav.Link>
+                            <Nav.Link onClick={() => onPageChange("Review")}>Review</Nav.Link>
+                            <Nav.Link onClick={() => onPageChange("Retro")}>Retro</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            {(page === "sizing") && <Sizing />}
+            {(page === "Refinement") && <Refinement users={users} user={user}/>}
             {/*{(page === "income" && data !== null) && <Income data={data} />}*/}
             {/*{(page === "summary" && data !== null) && <Summary data={data} />}*/}
             {/*{page === "schedule" && <CoffeeCalendar />}*/}

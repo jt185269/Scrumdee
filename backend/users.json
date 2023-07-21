@@ -2,11 +2,25 @@
     {
       "id": 1,
       "Email": "jt185269@ncr.com",
-      "Password": "lol"
+      "Password": "lol",
+      "Admin": false
     },
    {
      "id": 2,
      "Email": "hi",
-     "Password": "hi"
+     "Password": "hi",
+     "Admin" :false
+   },
+   {
+     "id": 3,
+     "Email" : "Maddie",
+     "Password" : "ILoveScrum",
+     "admin": true
+   },
+   {
+     "id": 4,
+     "Email" : "Dillon",
+     "Password" : "secure",
+     "admin": false
    }
  ]

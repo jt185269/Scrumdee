@@ -13,18 +13,24 @@ app.get('/', (req, res) => {
     console.log(req)
 })
 app.post('/api/login', (req, res) => {
-    console.log(users)
     let allowLogin = false
+    let foundUser = null
+
     users.forEach( user => {
         if (user.Email === req.body.Email) {
             if (user.Password === req.body.Password) {
                 allowLogin = true
+                foundUser = user
             }
         }
     })
-    res.send({auth: allowLogin})
+    console.log(foundUser)
+    res.send(foundUser)
 })
 
+app.get('/users', (req, res) => {
+    res.send(users)
+})
 
 
 app.listen(port, () => {

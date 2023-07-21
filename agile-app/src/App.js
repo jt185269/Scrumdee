@@ -23,8 +23,10 @@ function App() {
   }
 
   function Auth() {
+
     const {data, status, error} = useQuery(['memes'], fetchUser);
     console.log(data);
+    const loggedInUser= data
     if (status === 'loading') {
       return <p>loading...</p>
     }
@@ -34,8 +36,8 @@ function App() {
       return <p>ERROR!</p>
 
     }
-    if (status === 'success' && data.auth) {
-      return <p><NavMenu/></p>
+    if (status === 'success' && data != null) {
+      return <NavMenu user={loggedInUser}/>
     } else {
       return <p>login unsuccessful rip</p>
     }
@@ -50,7 +52,7 @@ function App() {
       <>
         <QueryClientProvider client={queryClient}>
           {!auth && <Login onAuth={onAuth}/>}
-          {auth && <div> <h3 className='heading'>Hi {user.email} <br/> Welcome to NCR Agility</h3> <br/> <Auth/></div>}
+          {auth && <div> <h3 className='heading'>Welcome to Atleos Agility</h3> <br/> <Auth/></div>}
         </QueryClientProvider>
       </>
   );
