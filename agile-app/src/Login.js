@@ -18,16 +18,26 @@ export const Login = ({onAuth}) => {
         })
     }
     return (
-            <Form>
+        <Container className="login-Form">   
+        <Form>
+            <Row className="Row-Stuff">
                 <Form.Group>
                     <Form.Label>Username</Form.Label>
                     <Form.Control  onChange={(e) => setUsername(e.target.value)} value={username} type="text"/>
                 </Form.Group>
+            </Row>
+            
+            <Row className="Row-Stuff">
                 <Form.Group>
                     <Form.Label>Password</Form.Label>
                     <Form.Control onChange={(e) => setPword(e.target.value)} value={pword} type="password"/>
                 </Form.Group>
+            </Row>
+                <Row className="button">
                 <Button onClick={onSubmit} type='submit'>Log in!</Button>
+                </Row>
             </Form>
+
+        </Container>
     )
 }
