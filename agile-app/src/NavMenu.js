@@ -55,7 +55,7 @@ export const NavMenu = ({user}) => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            {(page === "Sprint Planning") && <Sizing users={users} user={user}/>}
+            {(page === "Sizing") && <Sizing users={users} user={user}/>}
             {(page === "Refinement") && <Refinement users={users} user={user}/>}
             {(page === "Standup") && <Standup users={users} user={user}/>}
             {(page === "Retro") && <Retro users={users} user={user}/>}
