@@ -1,0 +1,47 @@
+.logo {
+        align-items: center;
+        padding-top: 2rem;
+        width: 25%;
+        padding-left: 10px;
+        font-size: 30px;
+}
+
+.login-form {
+        /* min-height: 1vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        vertical-align: middle;
+        justify-content: center;
+        font-size: calc(10px + 2vmin);
+        color: black;
+        margin: top 10px;
+        /* position:absolute; */
+        /* text-align: center; */
+
+        /* display: flex; */
+        width: 100%;
+        max-width: 60%;
+        margin: 0 auto;
+
+}
+
+.login-button {
+        float: right;
+        width: fit-content;
+}
+
+.register-button {
+        float: left;
+        width: fit-content;
+}
+
+.row-padding {
+        padding-top: 2rem;
+        width: 100%;
+        padding: 10px;
+}
+
+.more-padding {
+        padding-left: 2em
+}
