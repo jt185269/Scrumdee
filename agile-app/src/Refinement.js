@@ -154,7 +154,7 @@ export const Refinement = ({users, user}) => {
                             <option>21</option>
                         </Form.Select>
                     </Form.Group>
-                    <button onClick={() => submittedVote()}>Cast Vote</button>
+                    <Button onClick={() => submittedVote()}>Cast Vote</Button>
                     <Table striped bordered hover>
                         <thead>
                         <tr>
