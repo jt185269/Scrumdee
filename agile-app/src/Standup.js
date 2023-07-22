@@ -1,20 +1,21 @@
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/esm/Container";
+import Col from "react-bootstrap/Col";
 
-export const Standup = ({users, user}) => {
+export const Standup = ({ users, user }) => {
 
     var min = 0;
-    var usersCount  = Object.keys(users).length;
+    var usersCount = Object.keys(users).length;
     var rand = Math.floor(Math.random() * (usersCount));
 
     var num = -1;
     var ids = [];
-    var emails = [];
+    var names = [];
 
     /* initial */
     users.map(el => {
         ids.push(el.id);
-        emails.push(el.Email);
-        emails.push(el.DisplayName);
+        names.push(el.DisplayName);
     })
 
     function getRandom() {
@@ -25,34 +26,36 @@ export const Standup = ({users, user}) => {
     function remove() {
         alert('will remove user');
         ids.splice(rand, 1);
-        emails.splice(rand,1);
+        names.splice(rand, 1);
         /* how to redraw with these new arrays instead */
     }
 
     function select() {
         rand = getRandom();
-        alert(emails[rand]);
+        alert(names[rand]);
     }
 
-     return (
-         <div>
-            <h3>Standup</h3>
-            <br />
-            <h5>Randomise</h5>
-            <ul> 
-                {
-                users.map(el => {
-                    num++;
-                    return (<li>{el.DisplayName}</li>);
-                }) 
-            }
-            </ul>
+    return (
+        <Container style={{ display: 'flex', justifyContent: 'center', height: '100vh' }}>
+            <Col>
+                <h3>Standup</h3>
+                <br />
+                <h5>Randomise</h5>
+                <ul>
+                    {
+                        users.map(el => {
+                            num++;
+                            return (<li>{el.DisplayName}</li>);
+                        })
+                    }
+                </ul>
 
-            <h5>Selected: {emails[rand]}</h5>
 
-            <Button onClick={remove}>Remove Selected</Button>
-            <p></p>
-            <Button onClick={select}>Select Again</Button>
-        </div>
-     )
+                <Button onClick={select}>Select Again</Button>                
+                <p></p>
+                <Button onClick={remove}>Remove Selected</Button>
+
+            </Col>
+        </Container>
+    )
 }
