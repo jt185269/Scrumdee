@@ -34,24 +34,27 @@ export const Refinement = ({ users, user }) => {
 
     if (user.admin) {
         return (
-            <div>
+            <Container>
                 <br />
                 <h3>Refinement - Scrum Master</h3>
                 <br />
-
                 <p>Hi {user.DisplayName}</p>
 
-                {currentState === 'basePage' && <div>
-                    <Form.Group>
-                        <Form.Label>Select Story</Form.Label>
-                        <Form.Select onChange={(e) => setComp(e.target.value)} value={complexity} type="text" className="dropdown-custom">
-                            <option>NDCX-7912</option>
-                            <option>NDCX-5984</option>
-                            <option>NDCX-1928</option>
-                        </Form.Select>
-                    </Form.Group>
-                    <Button className="button-size" onClick={() => changeButtonText()}>{buttonText}</Button>
-                </div>}
+                {currentState === 'basePage' && <Col>
+                    <Row>
+                        <Form.Group>
+                            <Form.Label>Select Story</Form.Label>
+                            <Form.Select onChange={(e) => setComp(e.target.value)} value={complexity} type="text" className="dropdown-custom">
+                                <option>NDCX-7912</option>
+                                <option>NDCX-5984</option>
+                                <option>NDCX-1928</option>
+                            </Form.Select>
+                        </Form.Group>
+                    </Row>
+                    <br />
+                    <Button className="generate-button" onClick={() => changeButtonText()}>{buttonText}</Button>
+                </Col>
+                }
                 {currentState === 'finishedVoting' && <div>
                     <Form.Group>
                         <Form.Label>Select Story</Form.Label>
@@ -61,14 +64,15 @@ export const Refinement = ({ users, user }) => {
                             <option>NDCX-1928</option>
                         </Form.Select>
                     </Form.Group>
-                    <Button>Start Voting</Button>
+                    <br />
+                    <Button className="generate-button">Start Voting</Button>
 
                     <br />
                     <br />
                     <br />
 
                     <h3>Team Votes</h3>
-                    
+
                     <Table striped bordered hover>
                         <thead>
                             <tr>
@@ -108,7 +112,7 @@ export const Refinement = ({ users, user }) => {
                             <tr>
                                 <td>6</td>
                                 <td>Gina</td>
-                                <td>1</td>
+                                <td>3</td>
                             </tr>
                         </tbody>
                     </Table>
@@ -126,9 +130,15 @@ export const Refinement = ({ users, user }) => {
                             <option>21</option>
                         </Form.Select>
                     </Form.Group>
-                    <Button className="button-size" onClick={() => updateStory()}>Update Jira</Button>
-                </div>}
-            </div>
+                    <br />
+                    <Button className="generate-button" onClick={() => updateStory()}>Update Jira</Button>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+                }
+            </Container>
         )
     }
     else {
@@ -155,7 +165,7 @@ export const Refinement = ({ users, user }) => {
                         </Form.Group>
                     </Row>
                     <br />
-                        <Button className="generate-button" onClick={() => submittedVote()}>Cast Vote</Button>
+                    <Button className="generate-button" onClick={() => submittedVote()}>Cast Vote</Button>
                     <br />
                 </Col>
                 }
@@ -174,7 +184,7 @@ export const Refinement = ({ users, user }) => {
                     </Form.Group>
                 </Row>
                     <br />
-                        <Button className="generate-button" onClick={() => submittedVote()}>Cast Vote</Button>
+                    <Button className="generate-button" onClick={() => submittedVote()}>Cast Vote</Button>
                     <br />
                     <br />
                     <br />
@@ -220,13 +230,13 @@ export const Refinement = ({ users, user }) => {
                             <tr>
                                 <td>6</td>
                                 <td>Gina</td>
-                                <td>1</td>
+                                <td>3</td>
                             </tr>
                         </tbody>
                     </Table>
                 </Col>
                 }
-            </Container >
+            </Container>
         )
     }
 }
