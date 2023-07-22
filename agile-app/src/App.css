@@ -45,28 +45,51 @@
 
 
 .sizing {
-  text-align: center;
+  text-align: left;
   padding-top: 2rem;
-  width: 80%;
+  width: 100%;
 }
 
 .sizing-result {
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 9rem;
   width: 100%;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
-.button-size{
+.button-size {
   width: fit-content;
   padding-top: 10px;
-  float:right;
+  float: right;
+}
+
+.generate-button {
+  width: fit-content;
+  padding: 20px;
+  float: left;
+}
+
+.page-header {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  padding-top: 30px;
+}
+
+
+.dropdown-custom {
+  width:fit-content !important;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

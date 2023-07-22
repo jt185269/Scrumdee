@@ -18,7 +18,7 @@ function App() {
       body: JSON.stringify({ Email: user.email, Password: user.password })
     }
     console.log(user);
-    const res = await fetch('http://localhost:5000/api/login', options)
+    const res = await fetch('http://localhost:5000/api/login', options);
     return res.json();
   }
 
