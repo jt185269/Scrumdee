@@ -9,7 +9,7 @@ async function  getCats() {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
     }
-    const res = await fetch('http://localhost:5000/retro/categories', options)
+    const res = await fetch('http://localhost:5000/retro/categories', options);
     return res.json();
 }
 
@@ -43,7 +43,7 @@ export const Retro = ({users, user}) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({category})
             }
-            const res = await fetch('http://localhost:5000/retro/categories', options)
+            const res = await fetch('http://localhost:5000/retro/categories', options);
             return res.json();
         }
         addCat().then(res => {

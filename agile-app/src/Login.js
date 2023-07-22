@@ -40,10 +40,10 @@ export const Login = ({ onAuth }) => {
 
                     <Row className="button-size row-padding">
                         <Col>
-                            <Button onClick={onSubmit} type='submit' classname="register-button">Register</Button>
+                            <Button onClick={onSubmit} type='submit' className="register-button">Register</Button>
                         </Col>
                         <Col>
-                            <Button onClick={onSubmit} type='submit' classname="login-button">Log in</Button>
+                            <Button onClick={onSubmit} type='submit' className="login-button">Log in</Button>
                         </Col>
                     </Row>
                 </Form>
