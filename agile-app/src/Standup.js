@@ -38,9 +38,9 @@ export const Standup = ({ users, user }) => {
     return (
         <Container style={{ display: 'flex', justifyContent: 'center', height: '100vh' }}>
             <Col>
+                <br />
                 <h3>Standup</h3>
                 <br />
-                <h5>Randomise</h5>
                 <ul>
                     {
                         users.map(el => {
@@ -51,9 +51,9 @@ export const Standup = ({ users, user }) => {
                 </ul>
 
 
-                <Button onClick={select}>Select Again</Button>                
+                <Button onClick={select}>Select team member</Button>
                 <p></p>
-                <Button onClick={remove}>Remove Selected</Button>
+                <Button onClick={remove}>Remove selected</Button>
 
             </Col>
         </Container>
