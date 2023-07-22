@@ -1,7 +1,7 @@
 import {useState} from "react";
-import Dropdown from "bootstrap/js/src/dropdown";
 import Form from "react-bootstrap/Form";
 import Table from 'react-bootstrap/Table';
+import Button from "react-bootstrap/Button";
 
 export const Refinement = ({users, user}) => {
     const [currentState, setState] = useState("basePage");
@@ -139,7 +139,7 @@ export const Refinement = ({users, user}) => {
                             <option>21</option>
                         </Form.Select>
                     </Form.Group>
-                    <button onClick={() => submittedVote()}>Cast Vote</button>
+                    <Button onClick={() => submittedVote()}>Cast Vote</Button>
                 </div>}
                 {currentState === 'userVoted' && <div>
                     <Form.Group>

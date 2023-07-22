@@ -1,3 +1,5 @@
+import Button from "react-bootstrap/Button";
+
 export const Standup = ({users, user}) => {
 
     var min = 0;
@@ -48,9 +50,9 @@ export const Standup = ({users, user}) => {
 
             <h5>Selected: {emails[rand]}</h5>
 
-            <button onClick={remove}>Remove Selected</button>
+            <Button onClick={remove}>Remove Selected</Button>
             <p></p>
-            <button onClick={select}>Select Again</button>
+            <Button onClick={select}>Select Again</Button>
         </div>
      )
 }
