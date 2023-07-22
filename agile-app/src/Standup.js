@@ -41,8 +41,6 @@ export const Standup = ({users, user}) => {
                 {
                 users.map(el => {
                     num++;
-                    //return (<li>{el.Email}{ids[num]}</li>)
-                    console.log(el.DisplayName);
                     return (<li>{el.DisplayName}</li>);
                 }) 
             }
