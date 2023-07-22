@@ -52,7 +52,7 @@ function App() {
       <>
         <QueryClientProvider client={queryClient}>
           {!auth && <Login onAuth={onAuth}/>}
-          {auth && <div> <h3 className='heading'>Welcome to Atleos Agility</h3> <br/> <Auth/></div>}
+          {auth && <Auth/>}
         </QueryClientProvider>
       </>
   );
