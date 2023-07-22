@@ -26,14 +26,9 @@
 
 }
 
- .Row-Stuff{
+ .row-padding{
         padding-top: 2rem;
         width: 100%;
         padding: 10px;
  }
 
-
- .button{
-    width: fit-content;
-
- }

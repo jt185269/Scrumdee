@@ -23,21 +23,21 @@ export const Login = ({ onAuth }) => {
             <Row className='logo'>Atleos Agililty</Row>
             <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
             <Form>
-                <Row className="Row-Stuff">
+                <Row className="row-padding">
                     <Form.Group>
                         <Form.Label>Username</Form.Label>
                         <Form.Control onChange={(e) => setUsername(e.target.value)} value={username} type="text" />
                     </Form.Group>
                 </Row>
 
-                <Row className="Row-Stuff">
+                <Row className="row-padding">
                     <Form.Group>
                         <Form.Label>Password</Form.Label>
                         <Form.Control onChange={(e) => setPword(e.target.value)} value={pword} type="password" />
                     </Form.Group>
                 </Row>
 
-                <Row className="button Row-Stuff" >
+                <Row className="button-size row-padding" >
                     <Button onClick={onSubmit} type='submit' style={{ justifyContent: 'center', alignItems: 'center'}}>Log in</Button>
                 </Row>
             </Form>
