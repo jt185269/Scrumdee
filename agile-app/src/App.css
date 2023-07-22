@@ -60,6 +60,7 @@
 .button-size{
   width: fit-content;
   padding-top: 10px;
+  float:right;
 }
 
 @keyframes App-logo-spin {
