@@ -3,24 +3,35 @@
       "id": 1,
       "Email": "jt185269@ncr.com",
       "Password": "lol",
+      "DisplayName": "James",
       "Admin": false
     },
    {
      "id": 2,
      "Email": "hi",
      "Password": "hi",
+     "DisplayName": "Gina",
      "Admin" :false
    },
    {
      "id": 3,
      "Email" : "Maddie",
      "Password" : "ILoveScrum",
+     "DisplayName": "James",
      "admin": true
    },
    {
      "id": 4,
      "Email" : "Dillon",
      "Password" : "secure",
+     "DisplayName": "Dillon",
+     "admin": false
+   },
+   {
+     "id": 5,
+     "Email" : "Gina",
+     "Password" : "secure",
+     "DisplayName": "Gina",
      "admin": false
    }
  ]

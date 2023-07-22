@@ -12,6 +12,7 @@ export const Standup = ({users, user}) => {
     users.map(el => {
         ids.push(el.id);
         emails.push(el.Email);
+        emails.push(el.DisplayName);
     })
 
     function getRandom() {
@@ -40,7 +41,9 @@ export const Standup = ({users, user}) => {
                 {
                 users.map(el => {
                     num++;
-                    return (<li>{el.Email}{ids[num]}</li>)
+                    //return (<li>{el.Email}{ids[num]}</li>)
+                    console.log(el.DisplayName);
+                    return (<li>{el.DisplayName}</li>);
                 }) 
             }
             </ul>
