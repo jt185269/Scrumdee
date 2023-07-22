@@ -17,7 +17,7 @@
      "id": 3,
      "Email" : "Maddie",
      "Password" : "ILoveScrum",
-     "DisplayName": "James",
+     "DisplayName": "Maddie",
      "admin": true
    },
    {
@@ -29,9 +29,16 @@
    },
    {
      "id": 5,
-     "Email" : "Gina",
+     "Email" : "Holly",
      "Password" : "secure",
-     "DisplayName": "Gina",
+     "DisplayName": "Holly",
+     "admin": false
+   },
+   {
+     "id": 6,
+     "Email" : "Mathew",
+     "Password" : "secure",
+     "DisplayName": "Mathew",
      "admin": false
    }
  ]
