@@ -1,11 +1,14 @@
 import ReactStickyNotes from "@react-latest-ui/react-sticky-notes/src";
-import {useState} from "react";
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
-async function  getCats() {
+async function getCats() {
     console.log("getting cats")
-    let options= {
+    let options = {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
     }
@@ -13,35 +16,35 @@ async function  getCats() {
     return res.json();
 }
 
-const RetroItem = ({cat}) => {
+const RetroItem = ({ cat }) => {
     return (
         <div>
             <p>
                 <h3>{cat.category}</h3>
             </p>
-            <ReactStickyNotes/>
+            <ReactStickyNotes />
         </div>
     )
 }
 
-export const Retro = ({users, user}) => {
+export const Retro = ({ users, user }) => {
     const [categories, setCategories] = useState(null)
     const [category, setCategory] = useState("")
     console.log(categories)
     if (categories === null) {
-        getCats().then( (res) => {
-                setCategories(res)
-            }
+        getCats().then((res) => {
+            setCategories(res)
+        }
         );
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
         async function addCat() {
-            let options= {
+            let options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({category})
+                body: JSON.stringify({ category })
             }
             const res = await fetch('http://localhost:5000/retro/categories', options);
             return res.json();
@@ -53,13 +56,27 @@ export const Retro = ({users, user}) => {
     }
     return (
         <>
-            {user.admin && <Form>
-                <Form.Group>
-                    <Form.Label>Add new Category</Form.Label>
-                    <Form.Control onChange={(e) => setCategory(e.target.value)} value={category} type="text"/>
-                </Form.Group>
-                <Button onClick={onSubmit} type='submit'>Add category!</Button>
-            </Form>}
+            {user.admin &&
+                <Container><br />
+                <h3>Retro - Add Categories</h3>
+    
+                    <Row>
+                        <Col>
+                            <Form>
+                                <Form.Group>
+                                    <Form.Label>Add new Category</Form.Label>
+                                    <Form.Control onChange={(e) => setCategory(e.target.value)} value={category} type="text" />
+                                </Form.Group>
+                                <br />
+                                <Button className="generate-button" onClick={onSubmit} type='submit'>Add</Button>
+                            </Form>
+
+                        </Col>
+                        <Col></Col>
+                        <Col></Col>
+                    </Row>
+                </Container>
+            }
             <div className={"retro"}>
                 {!user.admin && categories && categories.map(cat => {
                     return <RetroItem cat={cat} className={"retro-item"} />
