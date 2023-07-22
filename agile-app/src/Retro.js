@@ -17,7 +17,7 @@ const RetroItem = ({cat}) => {
     return (
         <div>
             <p>
-                {cat.category}
+                <h3>{cat.category}</h3>
             </p>
             <ReactStickyNotes/>
         </div>
@@ -56,7 +56,7 @@ export const Retro = ({users, user}) => {
             {user.admin && <Form>
                 <Form.Group>
                     <Form.Label>Add new Category</Form.Label>
-                    <Form.Control  onChange={(e) => setCategory(e.target.value)} value={category} type="text"/>
+                    <Form.Control onChange={(e) => setCategory(e.target.value)} value={category} type="text"/>
                 </Form.Group>
                 <Button onClick={onSubmit} type='submit'>Add category!</Button>
             </Form>}
